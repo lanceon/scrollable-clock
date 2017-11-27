@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-const scroller = ({ onScroll }) => (
+const scroller: React.SFC<{ onScroll: (e: any) => any }> = ({ onScroll }) => (
   <div
     style={{
       padding: '5px',

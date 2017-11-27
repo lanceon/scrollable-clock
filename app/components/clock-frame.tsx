@@ -1,9 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 
 const bgColor = 'white';
 const strokeColor = 'black';
 
-const clockFrame = ({ x, y, r, stroke }) => (
+interface Props {
+  x: number;
+  y: number;
+  r: number;
+  stroke: number;
+}
+const clockFrame: React.SFC<Props> = ({ x, y, r, stroke }) => (
   <g>
     <circle
       cx={x}

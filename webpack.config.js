@@ -11,18 +11,13 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
-  entry: ['babel-polyfill', 'react-hot-loader/patch', './app/initialize.tsx'],
+  entry: ['react-hot-loader/patch', './app/initialize.tsx'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'app.js',
   },
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        use: ['babel-loader'],
-      },
       {
         test: /\.tsx?$/,
         exclude: /(node_modules)/,
