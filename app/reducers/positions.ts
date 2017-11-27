@@ -6,7 +6,7 @@ interface RoundRunnerState {
   position: number;
   speed: number;
 }
-interface PositionsStateShape {
+export interface PositionsStateShape {
   byId: {
     [id: number]: RoundRunnerState;
   };

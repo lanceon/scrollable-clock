@@ -1,13 +1,9 @@
 import { createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import root from './reducers';
+import { rootReducer, RootReducerShape } from './reducers';
 
-export default function configureStore(initialState) {
-  const store = createStore(
-    root,
-    initialState,
-    composeWithDevTools(),
-  );
+export default function configureStore(initialState: RootReducerShape) {
+  const store = createStore(rootReducer, initialState, composeWithDevTools());
   if (module.hot) {
     module.hot.accept('./reducers/index', () => {
       // eslint-disable-next-line

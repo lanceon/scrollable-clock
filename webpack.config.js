@@ -11,7 +11,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
   },
-  entry: ['babel-polyfill', 'react-hot-loader/patch', './app/initialize.jsx'],
+  entry: ['babel-polyfill', 'react-hot-loader/patch', './app/initialize.tsx'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'app.js',

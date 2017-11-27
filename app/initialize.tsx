@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import LinkedApp from './linked-app';
 
-const render = (Component) => {
+const render = (Component: React.ComponentType) => {
   ReactDOM.render(
     <AppContainer>
       <Component />
     </AppContainer>,
-    window.document.getElementById('root'),
+    window.document.getElementById('root')
   );
 };
 
