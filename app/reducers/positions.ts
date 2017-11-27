@@ -1,5 +1,16 @@
-import R from 'ramda';
 import actions from '../actions';
+
+interface RoundRunnerState {
+  id: number;
+  position: number;
+  speed: number;
+}
+interface PositionsStateShape {
+  byId: {
+    [id: number]: RoundRunnerState;
+  };
+  latestId: number;
+}
 
 const initialState = {
   byId: {
@@ -22,7 +33,10 @@ const initialState = {
   latestId: 2,
 };
 
-export const reducer = (state = initialState, action) => {
+export const reducer = (
+  state: PositionsStateShape = initialState,
+  action: { type: string; payload: any }
+) => {
   switch (action.type) {
     case actions.SCROLL:
       return {
@@ -43,7 +57,7 @@ export const reducer = (state = initialState, action) => {
 };
 
 export const selectors = {
-  getCirclePosition: (r, position) => ({
+  getCirclePosition: (r: number, position: number) => ({
     x: r * Math.cos(Math.PI * position / 60) + r,
     y: r * Math.sin(Math.PI * position / 60) + r,
   }),
