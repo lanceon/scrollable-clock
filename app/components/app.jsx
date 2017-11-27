@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-import actions from '../actions';
+import { userScrolls } from '../actions';
 import Scroller from './scroller';
 import Circle from './circle';
 import ClockFrame from './clock-frame';
@@ -48,7 +48,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   scroll: (e, id) => {
     e.preventDefault();
-    dispatch({ type: actions.SCROLL, payload: id });
+    dispatch(userScrolls(id));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(App);

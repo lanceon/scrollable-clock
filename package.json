@@ -20,7 +20,9 @@
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-saga": "^0.15.6",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "typescript-fsa": "^2.5.0",
+    "typescript-fsa-reducers": "^0.4.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

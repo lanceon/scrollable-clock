@@ -1,4 +1,5 @@
-import actions from '../actions';
+import { reducerWithInitialState } from 'typescript-fsa-reducers';
+import { userScrolls } from '../actions';
 
 interface RoundRunnerState {
   id: number;
@@ -33,28 +34,19 @@ const initialState = {
   latestId: 2,
 };
 
-export const reducer = (
-  state: PositionsStateShape = initialState,
-  action: { type: string; payload: any }
-) => {
-  switch (action.type) {
-    case actions.SCROLL:
-      return {
-        ...state,
-        byId: {
-          ...state.byId,
-          [action.payload]: {
-            ...state.byId[action.payload],
-            position:
-              state.byId[action.payload].position +
-              state.byId[action.payload].speed,
-          },
-        },
-      };
-    default:
-      return state;
-  }
-};
+export const reducer = reducerWithInitialState(initialState).case(
+  userScrolls,
+  (state, payload) => ({
+    ...state,
+    byId: {
+      ...state.byId,
+      [payload]: {
+        ...state.byId[payload],
+        position: state.byId[payload].position + state.byId[payload].speed,
+      },
+    },
+  })
+);
 
 export const selectors = {
   getCirclePosition: (r: number, position: number) => ({
